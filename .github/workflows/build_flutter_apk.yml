@@ -1,0 +1,56 @@
+name: Build ParkSense-S3 Android APK
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'app/**'
+      - '.github/workflows/build_flutter_apk.yml'
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter (stable)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Generate Android Gradle scaffolding
+        working-directory: app
+        run: flutter create --platforms=android --org com.parksense --project-name parksense_app .
+
+      - name: Apply BLE permissions, cleartext HTTP, and minSdk 21
+        working-directory: app
+        run: python3 scripts/configure_android.py
+
+      - name: Fetch dependencies and verify code
+        working-directory: app
+        run: |
+          flutter pub get
+          flutter analyze --no-fatal-infos
+
+      - name: Build release APK
+        working-directory: app
+        run: flutter build apk --release
+
+      - name: Rename APK
+        run: cp app/build/app/outputs/flutter-apk/app-release.apk ParkSense-S3.apk
+
+      - name: Upload ParkSense-S3.apk artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ParkSense-S3-APK
+          path: ParkSense-S3.apk
+          archive: false

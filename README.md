@@ -13,7 +13,8 @@
 ![Framework](https://img.shields.io/badge/Arduino-ESP32%20core%203.x-teal)
 ![Status](https://img.shields.io/badge/Status-Working%20prototype-brightgreen)
 
-*Electronic Product Development (Sessional) · KIIT School of Electronics Engineering*
+Note:-
+This repo also contains files for the app developmment of this product, which is under process and included in the scope for the future development of this project.
 
 </div>
 

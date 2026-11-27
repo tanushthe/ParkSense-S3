@@ -370,18 +370,6 @@ A custom **ESP32-CAM Interface Board (Rev A)** and a 3-D enclosure were designed
 
 The lifecycle documentation follows ISO/IEC/IEEE 29148 (requirements), IEC 62368-1 (safety), IPC-A-610 (assembly acceptability), IEC/IEEE 82079-1 (user documentation) and the Misra IoT Level 1 model. The project maps to UN SDGs 9, 11 and 12 and considers end-of-life under India's E-Waste (Management) Rules, 2022.
 
-## Team
-
-**Group No. 2**, School of Electronics Engineering, Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar.
-
-| Name | Roll no. | Role |
-|---|---|---|
-| Tanush Choudhury | — | Group Lead |
-| Ajeet Sharma | 2404006 | Member |
-| Abhijoy Biswas | 2404002 | Member |
-| Abinash Nayak | 2404003 | Member |
-
-**Guide:** Dr. Deepak Kumar Rout
 
 ## License
 
